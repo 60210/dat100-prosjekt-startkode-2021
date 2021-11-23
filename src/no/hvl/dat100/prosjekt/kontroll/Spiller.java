@@ -3,6 +3,7 @@ package no.hvl.dat100.prosjekt.kontroll;
 import no.hvl.dat100.prosjekt.modell.KortSamling;
 import no.hvl.dat100.prosjekt.modell.KortUtils;
 import no.hvl.dat100.prosjekt.TODO;
+import no.hvl.dat100.prosjekt.kontroll.spill.Handling;
 import no.hvl.dat100.prosjekt.kontroll.spill.Spillere;
 import no.hvl.dat100.prosjekt.modell.Kort;
 
@@ -26,6 +27,8 @@ public abstract class Spiller implements ISpiller {
 	
 	// hvem spilleren er (Nord,Syd,Ingen) - se oppramsklassen Spillere
 	private Spillere spiller;
+	
+	public Kort[] samlingen;
 
 	/**
 	 * Standard konstruktør som oppretter en Spiller med en hånd uten kort,
@@ -35,7 +38,12 @@ public abstract class Spiller implements ISpiller {
 		
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.constructor("Spiller"));
+		this.hand = new KortSamling();
+		antalltrekk = 0;
+		spiller = Spillere.INGEN;
+
+
+	// throw new UnsupportedOperationException(TODO.constructor("Spiller"));
 		// TODO - END
 	}
 
@@ -49,16 +57,21 @@ public abstract class Spiller implements ISpiller {
 	public Spiller(Spillere spiller) {
 		
 		// TODO - START
+		this.hand = new KortSamling();
+		antalltrekk = 0;		
+		this.spiller = spiller;
 
-		throw new UnsupportedOperationException(TODO.constructor("Spiller"));
+	// 	throw new UnsupportedOperationException(TODO.constructor("Spiller"));
 		// TODO - END
 	}
 
 	public int getAntallKort() {
 		
 		// TODO - START
+	
+		return hand.getAntalKort();
 		
-		throw new UnsupportedOperationException(TODO.method());
+	//	throw new UnsupportedOperationException(TODO.method());
 
 		// TODO - END
 	}
@@ -67,7 +80,9 @@ public abstract class Spiller implements ISpiller {
 		
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
+		return hand;
+		
+	//	throw new UnsupportedOperationException(TODO.method());
 
 		// TODO - END
 	}
@@ -76,7 +91,9 @@ public abstract class Spiller implements ISpiller {
 		
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
+		return antalltrekk;
+		
+	//	throw new UnsupportedOperationException(TODO.method());
 
 		// TODO - END
 	}
@@ -85,7 +102,9 @@ public abstract class Spiller implements ISpiller {
 		
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
+		return spiller;
+		
+	// 	throw new UnsupportedOperationException(TODO.method());
 
 		// TODO - END
 		
@@ -95,7 +114,9 @@ public abstract class Spiller implements ISpiller {
 		
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
+		antalltrekk = t;
+		
+	// 	throw new UnsupportedOperationException(TODO.method());
 		// TODO - END
 	}
 
@@ -103,7 +124,12 @@ public abstract class Spiller implements ISpiller {
 		
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
+		if (hand.getAntalKort() > 0)
+			return false;
+		else
+			return true;
+		
+	// 	throw new UnsupportedOperationException(TODO.method());
 		// TODO - END
 		
 	}
@@ -112,7 +138,11 @@ public abstract class Spiller implements ISpiller {
 		
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
+		hand.leggTil(kort);
+		
+		return;
+		
+	//	throw new UnsupportedOperationException(TODO.method());
 		// TODO - END
 		
 	}
@@ -121,7 +151,10 @@ public abstract class Spiller implements ISpiller {
 		
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
+		hand.fjern(kort);
+		return;
+		
+	//	throw new UnsupportedOperationException(TODO.method());
 		// TODO - END
 		
 	}
@@ -130,7 +163,10 @@ public abstract class Spiller implements ISpiller {
 		
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
+		hand.fjernAlle();
+		return;
+		
+	// 	throw new UnsupportedOperationException(TODO.method());
 		// TODO - END
 	}
 
@@ -138,8 +174,15 @@ public abstract class Spiller implements ISpiller {
 		
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
+		hand.leggTil(kort);
+		antalltrekk++;
+		return;
+		
+	// 	throw new UnsupportedOperationException(TODO.method());
 		// TODO - END
 		
 	}
 }
+
+
+
